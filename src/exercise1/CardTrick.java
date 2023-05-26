@@ -5,8 +5,8 @@ package exercise1;
  * It then searches the array of cards for the match to the user's card. 
  * To be used as starting code in Exercise
  *
- * @author dancye
- * @author Paul Bonenfant Jan 25, 2022 
+ * @author Sukhmanmeet Singh
+ * @author Sukhmanmeet Singh May 26, 2023 
  */
 public class CardTrick {
     
@@ -16,12 +16,26 @@ public class CardTrick {
 
         for (int i = 0; i < hand.length; i++) {
             Card card = new Card();
+            card.setValue(generateRandomValue());
+            card.setSuit(generateRandomSuit());
+                    hand[i]=card;
             //card.setValue(insert call to random number generator here)
             // 
             //card.setSuit(Card.SUITS[insert call to random number between 0-3 here])
             // Hint: You can use Random -> random.nextInt(n) to get a random number between 0 and n-1 (inclusive)
             //       Don't worry about duplicates at this point
         }
+    }
+    private static String generateRandomSuit() {
+        String[] suits = { "Hearts", "Diamonds", "Clubs", "Spades" };
+        Random random = new Random();
+        return suits[random.nextInt(suits.length)]; // Choose a random suit from the array
+    }
+
+    private static int generateRandomValue() {
+        Random random = new Random();
+        return random.nextInt(13) + 1;
+    }
 
         // insert code to ask the user for Card value and suit, create their card
         // and search the hand here. 
@@ -40,18 +54,18 @@ public class CardTrick {
      * replace this information with your own.
      * @author Paul Bonenfant Jan 2022
      */
-    private static void printInfo() {
+    public static void printInfo() {
     
         System.out.println("Congratulations, you guessed right!");
-        System.out.println();
+        
         
         System.out.println("My name is Sukhmanmeet Singh, but you can call me Sukhman, Sukh or Star");
-        System.out.println();
+       
         
         System.out.println("My career ambitions:");
         System.out.println("-- Be more active on LinkedIn");
         System.out.println("-- Have a semester with no violations of academic integrity!");
-	System.out.println();	
+		
 
         System.out.println("My hobbies:");
         System.out.println("-- Investing");
@@ -59,9 +73,9 @@ public class CardTrick {
         System.out.println("-- Reading/Watching TV");
         System.out.println("-- Riding my motorcycle");
 
-        System.out.println();
+
         
     
-    }
+}
 
 }
